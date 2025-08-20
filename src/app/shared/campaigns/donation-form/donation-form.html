@@ -1,0 +1,10 @@
+<div class="padding-top-3 padding-bottom-6">
+  <div class="container">
+    <h1 class="margin-bottom-4 text-center">Donate Now</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="d-flex align-items-center gap-1 margin-bottom-2">
+      <input class="main_input" type="number" min="1" placeholder="$10.00" formControlName="amount" />
+      <input class="main_input" type="text" placeholder="Enter your name" formControlName="donor" />
+      <button type="submit" class="btn main_btn">Donate</button>
+    </form>
+  </div>
+</div>
