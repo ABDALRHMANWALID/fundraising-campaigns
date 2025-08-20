@@ -9,4 +9,12 @@ form {
     input[type=text] {
         flex: 2;
     }
+
+    @media(max-width:500px) {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+        }
+    }
 }
