@@ -8,6 +8,7 @@ import { Campaigns } from '../../../core/services/campaigns/campaigns';
 import { DonationForm } from '../../../shared/campaigns/donation-form/donation-form';
 import { Partners } from '../../../shared/campaigns/partners/partners';
 import { Champions } from '../../../shared/campaigns/champions/champions';
+import { WebSocketMessage } from '../../../core/types/webSocket';
 
 @Component({
   selector: 'app-campaign-details',
@@ -41,14 +42,14 @@ export class CampaignDetails implements OnInit, OnDestroy {
     this.getCampaign(this.id);
 
     this.webSocket.connect();
-    this.webSocket.messages().subscribe((m: any) => {
-      if (m?.campaignId == this.id) {
+    this.webSocket.messages().subscribe((m: WebSocketMessage) => {
+      if (m?.['campaignId'] == this.id) {
         this.campaign.update((data) => ({
           ...data,
-          currentAmount: data?.currentAmount + m.amount,
+          currentAmount: data?.currentAmount + m?.['amount'],
           donors: [
             ...data?.donors,
-            { name: m?.donor, amount: m?.amount, newUser: true },
+            { name: m?.['donor'], amount: m?.['amount'], newUser: true },
           ],
         }));
       }

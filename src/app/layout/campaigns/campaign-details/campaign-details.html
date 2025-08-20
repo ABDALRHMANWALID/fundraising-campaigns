@@ -1,3 +1,4 @@
+@if(campaign()) {
 <div class="padding-y-3">
   <div class="container">
     <div class="text-center">
@@ -8,6 +9,7 @@
     </div>
   </div>
 </div>
+
 <div class="padding-y-3 bg_light_color top-section">
   <div class="container">
     <div class="main_image">
@@ -48,9 +50,11 @@
   </div>
 </div>
 
-
 <app-champions [donors]="campaign()?.donors"></app-champions>
 <app-donation-form [id]="id"></app-donation-form>
 <div class="mobile-hidden">
   <app-partners></app-partners>
 </div>
+}@else {
+<h1 class="text-center padding-y-3">Campaign not found</h1>
+}
