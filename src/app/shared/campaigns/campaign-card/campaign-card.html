@@ -1,0 +1,10 @@
+<a class="width-100" [routerLink]="'/campaigns/' + id()">
+    <div class="main_image width-100 h-200 mb-16">
+        <img [src]="imageUrl()" [alt]="name()" />
+    </div>
+    <mat-progress-bar mode="determinate" class="mb-12" [value]="(currentAmount() / goal()) * 100"></mat-progress-bar>
+
+    <h3 class="mb-12">{{ name() }}</h3>
+    <p class="mb-6">Target: ${{ goal() }}</p>
+    <p class="mb-6">Raised: ${{ currentAmount() }}</p>
+</a>
