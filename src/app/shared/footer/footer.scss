@@ -1,0 +1,19 @@
+footer {
+    .links_section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 16px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            
+        }
+    }
+    .copyright_section {
+        @media (max-width: 768px) {
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+        }
+    }
+}

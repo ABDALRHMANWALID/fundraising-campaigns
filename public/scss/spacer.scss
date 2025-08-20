@@ -204,3 +204,9 @@
         gap: #{$i}rem;
     }
 }
+
+@for $i from 1 through 9 {
+    .fw-#{$i * 100} {
+        font-weight: #{$i * 100};
+    }
+}

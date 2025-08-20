@@ -1,1 +1,28 @@
-<p>footer works!</p>
+<footer>
+  <div class="container">
+    <div class="links_section padding-y-3">
+      @for (section of sections;let i = $index;track i) {
+      <ul>
+        <li>
+          <p class="mb-12">{{ section.title }}</p>
+        </li>
+        @for (link of section.links;let j = $index;track j) {
+        <li class="mb-8">
+          <a class="main_link text_gray_color fw-600" [href]="link.link">{{
+            link.title
+          }}</a>
+        </li>
+        }
+      </ul>
+
+      }
+    </div>
+    <mat-divider></mat-divider>
+    <div class="d-flex align-items-center justify-content-between gap-3 padding-y-3 copyright_section">
+      <div class="main_image">
+        <img src="assets/images/logo.png" alt="logo" />
+      </div>
+      <p>© {{ currentYear }} Growdfund. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
