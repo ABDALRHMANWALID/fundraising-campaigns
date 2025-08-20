@@ -1,1 +1,28 @@
-<p>all-campaigns works!</p>
+@if (campaigns.value()) {
+<div class="padding-y-3">
+  <div class="container">
+    <div class="text-center">
+      <p class="margin-bottom-1 text_main_color">Donation Campaigns</p>
+      <h1 class="margin-bottom-2">Make a Positive Impact</h1>
+      <p class="mb-8">Every penny counts.</p>
+      <p class="mb-8">Donate now and make the world a better place.</p>
+    </div>
+  </div>
+</div>
+
+<div class="campaigns_group padding-top-3 padding-bottom-6">
+  <div class="container">
+    @for (campaign of campaigns.value(); track campaign.id) {
+    <app-campaign-card
+      [imageUrl]="campaign.imageUrl"
+      [id]="campaign.id"
+      [name]="campaign.name"
+      [goal]="campaign.goal"
+      [currentAmount]="campaign.currentAmount"
+    ></app-campaign-card>
+    }
+  </div>
+</div>
+}@else {
+<h1 class="text-center padding-y-3">No campaigns found</h1>
+}

@@ -1,5 +1,5 @@
 <a class="width-100" [routerLink]="'/campaigns/' + id()">
-    <div class="main_image width-100 h-200 mb-16">
+    <div class="main_image width-100 h-200 mb-16  min-h-200 bg_dark_color">
         <img [src]="imageUrl()" [alt]="name()" />
     </div>
     <mat-progress-bar mode="determinate" class="mb-12" [value]="(currentAmount() / goal()) * 100"></mat-progress-bar>
