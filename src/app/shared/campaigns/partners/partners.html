@@ -4,10 +4,10 @@
         Our partners help drive the success of your campaigns
       </p>
       <ul class="partners">
-        @for(item of ['1','2','3','4','5']; track $index) {
+        @for(partner of partners; track partner) {
         <li>
           <div class="main_image">
-            <img [src]="'assets/images/partners/' + item + '.png'" alt="Partner" />
+            <img [src]="partner" alt="Partner" />
           </div>
         </li>
         }
