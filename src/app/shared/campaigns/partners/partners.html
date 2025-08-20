@@ -1,0 +1,17 @@
+<div class="padding-top-3 padding-bottom-6 bg_dark_color">
+    <div class="container">
+      <p class="margin-bottom-3 text-center">
+        Our partners help drive the success of your campaigns
+      </p>
+      <ul class="partners">
+        @for(item of ['1','2','3','4','5']; track $index) {
+        <li>
+          <div class="main_image">
+            <img [src]="'assets/images/partners/' + item + '.png'" alt="Partner" />
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+  
