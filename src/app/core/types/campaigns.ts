@@ -10,3 +10,8 @@ export interface Campaign {
         amount: number;
     }>;
 }
+
+export interface Donation {
+    amount: number;
+    donor?: string;
+}
