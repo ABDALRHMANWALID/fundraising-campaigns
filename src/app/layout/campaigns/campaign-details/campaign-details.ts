@@ -7,10 +7,17 @@ import { WebSocket } from '../../../core/services/WebSocket/web-socket';
 import { Campaigns } from '../../../core/services/campaigns/campaigns';
 import { DonationForm } from '../../../shared/campaigns/donation-form/donation-form';
 import { Partners } from '../../../shared/campaigns/partners/partners';
+import { Champions } from '../../../shared/campaigns/champions/champions';
 
 @Component({
   selector: 'app-campaign-details',
-  imports: [MatProgressBarModule, CommonModule, DonationForm, Partners],
+  imports: [
+    MatProgressBarModule,
+    CommonModule,
+    DonationForm,
+    Partners,
+    Champions,
+  ],
   templateUrl: './campaign-details.html',
   styleUrl: './campaign-details.scss',
 })
@@ -25,7 +32,7 @@ export class CampaignDetails implements OnInit, OnDestroy {
 
   getCampaign(id: string) {
     this.campaigns.getCampaign(id).valueChanges.subscribe((data: any) => {
-      this.campaign.set(data.data?.campaign);
+      this.campaign.set(data?.data?.campaign);
     });
   }
 
@@ -34,14 +41,18 @@ export class CampaignDetails implements OnInit, OnDestroy {
     this.getCampaign(this.id);
 
     this.webSocket.connect();
-    this.webSocket.messages().subscribe(
-      (m: any) =>
-        m?.campaignId == this.id &&
+    this.webSocket.messages().subscribe((m: any) => {
+      if (m?.campaignId == this.id) {
         this.campaign.update((data) => ({
           ...data,
-          currentAmount: data.currentAmount + m.amount,
-        }))
-    );
+          currentAmount: data?.currentAmount + m.amount,
+          donors: [
+            ...data?.donors,
+            { name: m?.donor, amount: m?.amount, newUser: true },
+          ],
+        }));
+      }
+    });
   }
 
   ngOnDestroy(): void {

@@ -141,3 +141,17 @@
 .text-center {
     text-align: center;
 }
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--main_color);
+
+    &.badge-success {
+        background-color: #ECFDF3;
+        color: #027A48;
+    }
+}

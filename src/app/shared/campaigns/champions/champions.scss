@@ -1,0 +1,22 @@
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media(max-width:767px) {
+        grid-template-columns: 1fr;
+    }
+
+    li {
+        border: 1px solid #e0e0e0;
+        padding: 24px;
+        border-radius: 16px;
+
+        h5 {
+            font-size: 16px;
+            color: var(--black_color);
+            margin-bottom: 8px;
+        }
+    }
+}

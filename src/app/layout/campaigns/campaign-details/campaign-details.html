@@ -48,19 +48,9 @@
   </div>
 </div>
 
-<div class="padding-y-3">
-  <div class="container">
-    <h1 class="margin-bottom-4 text-center">Champions of the Cause</h1>
-    <ul class="champions">
-      @for (donor of campaign()?.donors; track donor.id) {
-      <li>
-        <h5>{{ donor.name }}</h5>
-        <p>${{ donor.amount }}</p>
-      </li>
-      }
-    </ul>
-  </div>
-</div>
 
+<app-champions [donors]="campaign()?.donors"></app-champions>
 <app-donation-form [id]="id"></app-donation-form>
-<app-partners></app-partners>
+<div class="mobile-hidden">
+  <app-partners></app-partners>
+</div>

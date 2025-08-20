@@ -1,0 +1,16 @@
+<div class="padding-y-3">
+  <div class="container">
+    <h1 class="margin-bottom-4 text-center">Champions of the Cause</h1>
+    <ul>
+      @for (donor of donors(); track donor.id) {
+      <li>
+        <h5 class="d-flex align-items-center justify-content-between gap-2">
+          {{ donor.name }} @if(donor?.newUser) {
+          <span class="badge badge-success">New</span> }
+        </h5>
+        <p>${{ donor.amount }}</p>
+      </li>
+      }
+    </ul>
+  </div>
+</div>
