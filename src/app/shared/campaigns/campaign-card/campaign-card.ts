@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CampaignCard {
   imageUrl = input.required<string>();
-  id = input.required<number>();
+  id = input.required<string>();
   name = input.required<string>();
   goal = input.required<number>();
   currentAmount = input.required<number>();
