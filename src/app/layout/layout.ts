@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Footer } from '../shared/footer/footer';
 import { Header } from '../shared/header/header';
 import { RouterOutlet } from '@angular/router';
+import { NewsSubscription } from '../shared/news-subscription/news-subscription';
 
 @Component({
   selector: 'app-layout',
-  imports: [Header, RouterOutlet, Footer],
+  imports: [Header, RouterOutlet, Footer, NewsSubscription],
   templateUrl: './layout.html',
   styleUrl: './layout.scss'
 })
