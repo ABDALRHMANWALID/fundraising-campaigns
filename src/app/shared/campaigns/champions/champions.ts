@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { Donor } from '../../../core/types/campaigns';
 
 @Component({
   selector: 'app-champions',
@@ -7,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './champions.scss'
 })
 export class Champions {
-  donors = input.required<any[]>();
+  donors = input.required<Donor[]>();
 }
