@@ -1,4 +1,21 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-news-subscription></app-news-subscription>
-<app-footer></app-footer>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer class="menu_settings" mode="over" position="end">
+    <div class="main_image w-100 margin-y-1 margin-x-2">
+      <img src="assets/images/logo.png" />
+    </div>
+    <nav>
+      <a class="main_link" href="#">Home</a>
+      <a class="main_link" href="#">About</a>
+    </nav>
+    <div class="d-flex align-items-center justify-content-end gap-1 margin-y-1 margin-x-1">
+      <button class="btn light_btn fs-12">Log in</button>
+      <button class="btn main_btn fs-12">Sign up</button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header [drawer]="drawer"></app-header>
+    <router-outlet></router-outlet>
+    <app-news-subscription></app-news-subscription>
+    <app-footer></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
