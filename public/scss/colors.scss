@@ -1,0 +1,16 @@
+$colors: (
+    main_color: var(--main_color),
+    main_color_dark: var(--main_color_dark),
+    light_color: var(--light_color),
+    dark_color: var(--dark_color)
+);
+
+@each $key, $value in $colors {
+    .bg_#{$key} {
+        background-color: $value;
+    }
+
+    .text_#{$key} {
+        color: $value;
+    }
+}
