@@ -1,3 +1,3 @@
 export const environment = {
-    uri: 'http://localhost:4000/',
+    uri: 'https://raise-right-assessment-mocks.up.railway.app/',
 };
